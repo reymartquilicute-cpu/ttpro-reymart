@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TTPRO | Join Our Team Karawai</title>
+
+    <style>
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #05070d;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           MOUSE FOLLOWER
+        ===================================================== */
+
+        .mouse-glow {
+            position: fixed;
+            left: 0;
+            top: 0;
+
+            width: 18px;
+            height: 18px;
+
+            border-radius: 50%;
+
+            background: #39ff88;
+
+            box-shadow:
+                0 0 8px #39ff88,
+                0 0 18px #39ff88,
+                0 0 35px rgba(57, 255, 136, 0.7);
+
+            pointer-events: none;
+
+            transform: translate(-50%, -50%);
+
+            z-index: 99999;
+
+            opacity: 0;
+
+            mix-blend-mode: screen;
+
+            transition: opacity 0.2s ease;
+        }
+
+        .mouse-trail {
+            position: fixed;
+            left: 0;
+            top: 0;
+
+            width: 0;
+            height: 2px;
+
+            background: linear-gradient(90deg, transparent, #39ff88);
+            box-shadow: 0 0 8px #39ff88, 0 0 16px rgba(57, 255, 136, 0.75);
+
+            pointer-events: none;
+            transform-origin: left center;
+            z-index: 99998;
+            opacity: 0;
+
+            transition: opacity 0.2s ease;
+        }
+
+        .mouse-glow::before {
+            content: "";
+
+            position: absolute;
+
+            width: 36px;
+            height: 36px;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            border: 1px solid rgba(57, 255, 136, 0.5);
+
+            border-radius: 50%;
+
+            animation: mousePulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes mousePulse {
+            0% {
+                transform: translate(-50%, -50%) scale(0.7);
+                opacity: 0.9;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.25);
+                opacity: 0.25;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(0.7);
+                opacity: 0.9;
+            }
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            width: 100%;
+            min-height: 75px;
+
+            padding: 12px 5%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+
+            background: rgba(3, 6, 15, 0.97);
+
+            border-bottom: 1px solid rgba(30, 136, 255, 0.25);
+
+            position: relative;
+            z-index: 100;
+        }
+
+
+        /* =====================================================
+           TTPRO LOGO / BRAND
+        ===================================================== */
+
+        .logo {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            flex-shrink: 0;
+        }
+
+        .logo-avatar {
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            overflow: hidden;
+
+            background: #050a14;
+
+            border: 2px solid #1687ff;
+
+            box-shadow:
+                0 0 10px rgba(22, 135, 255, 0.45),
+                0 0 25px rgba(22, 135, 255, 0.15);
+        }
+
+        .logo-avatar img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+
+            border-radius: 50%;
+
+            display: block;
+        }
+
+        /* TTPRO BLUE HIGHLIGHT */
+
+        .logo span {
+            font-size: 23px;
+
+            font-weight: 900;
+
+            color: #1687ff;
+
+            letter-spacing: 1px;
+
+            text-shadow:
+                0 0 8px rgba(22, 135, 255, 0.7),
+                0 0 20px rgba(22, 135, 255, 0.35);
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        nav {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 20px;
+
+            flex: 1;
+        }
+
+        nav a {
+            color: #ffd34f;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff2a8;
+
+            text-shadow:
+                0 0 10px rgba(255, 211, 79, 0.8);
+        }
+
+
+        /* =====================================================
+           NAV BUTTONS
+        ===================================================== */
+
+        .nav-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 10px 16px;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+
+            color: #fff;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2196ff,
+                    #075dcc
+                );
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            white-space: nowrap;
+
+            box-shadow:
+                0 5px 18px rgba(22, 135, 255, 0.2);
+
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 25px rgba(22, 135, 255, 0.4);
+        }
+
+        .nav-btn.contact {
+            background: transparent;
+
+            color: #1687ff;
+
+            border: 1px solid #1687ff;
+
+            box-shadow: none;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: calc(100vh - 75px);
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 80px 20px 100px;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(20, 110, 255, 0.16),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    135deg,
+                    #05070d 0%,
+                    #081529 50%,
+                    #03050a 100%
+                );
+        }
+
+
+        /* =====================================================
+           BACKGROUND GLOW
+        ===================================================== */
+
+        .glow {
+            position: absolute;
+
+            border-radius: 50%;
+
+            pointer-events: none;
+
+            filter: blur(80px);
+
+            opacity: 0.25;
+        }
+
+        .glow-one {
+            width: 350px;
+            height: 350px;
+
+            background: #006eff;
+
+            top: 10%;
+            left: -150px;
+        }
+
+        .glow-two {
+            width: 300px;
+            height: 300px;
+
+            background: #00aaff;
+
+            right: -100px;
+            top: 20%;
+        }
+
+        .glow-three {
+            width: 250px;
+            height: 250px;
+
+            background: #145cff;
+
+            bottom: -100px;
+            left: 40%;
+        }
+
+        .platform3-orb {
+            position: absolute;
+            z-index: 5;
+
+            top: 14%;
+            right: 4%;
+
+            width: 300px;
+            height: 230px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: radial-gradient(circle, #0b315e 0%, #06152c 72%);
+            border-radius: 18px;
+            pointer-events: none;
+
+            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.55));
+            animation: mainLogoFloat 4s ease-in-out infinite;
+        }
+
+        .platform3-orb::before {
+            content: "";
+
+            position: absolute;
+
+            width: 215px;
+            height: 215px;
+
+            border: 1px solid rgba(22, 135, 255, 0.5);
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 25px rgba(22, 135, 255, 0.25),
+                inset 0 0 25px rgba(22, 135, 255, 0.12);
+
+            animation: ringPulse 3s ease-in-out infinite;
+        }
+
+        .platform3-orb img {
+            position: relative;
+            z-index: 1;
+
+            width: 280px;
+            height: 210px;
+
+            object-fit: contain;
+        }
+
+        @media (max-width: 600px) {
+            .platform3-orb {
+                top: 16%;
+                right: 1%;
+                width: 190px;
+                height: 145px;
+            }
+
+            .platform3-orb::before {
+                width: 136px;
+                height: 136px;
+            }
+
+            .platform3-orb img {
+                width: 180px;
+                height: 135px;
+            }
+        }
+
+        .platform-side {
+            position: absolute;
+            z-index: 6;
+
+            top: 50%;
+
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+
+            transform: translateY(-50%);
+        }
+
+        .platform-left {
+            left: 3%;
+        }
+
+        .platform-right {
+            right: 3%;
+        }
+
+        .platform-item {
+            position: relative;
+
+            width: 120px;
+            height: 120px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(8, 21, 44, 0.9);
+            border: 2px solid #ffd34f;
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 15px rgba(255, 211, 79, 0.55),
+                inset 0 0 18px rgba(255, 211, 79, 0.18);
+
+            animation: platformFloat 5s ease-in-out infinite;
+        }
+
+        .platform-item::before {
+            content: "";
+
+            position: absolute;
+
+            width: 104px;
+            height: 104px;
+
+            border: 1px solid rgba(255, 211, 79, 0.7);
+            border-radius: 50%;
+            animation: ringPulse 3s ease-in-out infinite;
+        }
+
+        .platform-item img {
+            position: relative;
+            z-index: 1;
+
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            pointer-events: none;
+
+            filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.55));
+        }
+
+        .platform4 {
+            animation-delay: 0.4s;
+        }
+
+        .platform5 {
+            animation-delay: 1.6s;
+        }
+
+        .platform6 {
+            animation-delay: 2.8s;
+        }
+
+        .platform7 {
+            animation-delay: 4s;
+        }
+
+        @keyframes platformFloat {
+            0%,
+            100% {
+                transform: translateY(0) rotate(-3deg);
+            }
+
+            50% {
+                transform: translateY(-14px) rotate(3deg);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .platform-side {
+                gap: 10px;
+            }
+
+            .platform-item {
+                width: 88px;
+                height: 88px;
+                opacity: 0.75;
+            }
+
+            .platform-item::before {
+                width: 76px;
+                height: 76px;
+            }
+
+            .platform-item img {
+                width: 74px;
+                height: 74px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .platform-left {
+                left: 1%;
+            }
+
+            .platform-right {
+                right: 1%;
+            }
+
+            .platform-side {
+                gap: 5px;
+            }
+
+            .platform-item {
+                width: 68px;
+                height: 68px;
+                opacity: 0.6;
+            }
+
+            .platform-item::before {
+                width: 58px;
+                height: 58px;
+            }
+
+            .platform-item img {
+                width: 58px;
+                height: 58px;
+            }
+        }
+
+
+        /* =====================================================
+           HERO CONTENT
+        ===================================================== */
+
+        .hero-content {
+            position: relative;
+
+            z-index: 10;
+
+            width: 100%;
+            max-width: 850px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           CENTER LOGO
+        ===================================================== */
+
+        .main-logo {
+            position: relative;
+
+            width: 230px;
+            height: 230px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 25px;
+        }
+
+        .main-logo img {
+            width: 190px;
+            height: 190px;
+
+            object-fit: contain;
+
+            position: relative;
+
+            z-index: 2;
+
+            filter:
+                drop-shadow(0 0 15px rgba(22, 135, 255, 0.8))
+                drop-shadow(0 0 35px rgba(0, 100, 255, 0.3));
+
+            animation: mainLogoFloat 4s ease-in-out infinite;
+        }
+
+        .logo-ring {
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            border: 1px solid rgba(22, 135, 255, 0.5);
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 25px rgba(22, 135, 255, 0.25),
+                inset 0 0 25px rgba(22, 135, 255, 0.12);
+
+            animation: ringPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes mainLogoFloat {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes ringPulse {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+        }
+
+
+        /* =====================================================
+           TITLE
+        ===================================================== */
+
+        .hero-content h1 {
+            font-size: clamp(48px, 8vw, 90px);
+
+            line-height: 0.95;
+
+            font-weight: 900;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 15px;
+
+            text-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        /* TTPRO BLUE */
+
+        .hero-content h1 span {
+            color: #1687ff;
+
+            text-shadow:
+                0 0 10px rgba(22, 135, 255, 0.7),
+                0 0 30px rgba(22, 135, 255, 0.35);
+        }
+
+
+        /* =====================================================
+           SUBTITLE
+        ===================================================== */
+
+        .hero-content h2 {
+            font-size: clamp(20px, 3vw, 32px);
+
+            font-weight: 500;
+
+            margin-bottom: 18px;
+        }
+
+        .hero-content h2 strong {
+            color: #1687ff;
+        }
+
+
+        /* =====================================================
+           REWARD TEXT
+        ===================================================== */
+
+        .reward-text {
+            color: #1687ff;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 30px;
+
+            animation: blueShine 3s ease-in-out infinite;
+        }
+
+        @keyframes blueShine {
+            0%,
+            100% {
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ===================================================== */
+
+        .button-group {
+            display: flex;
+
+            gap: 12px;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            min-width: 180px;
+
+            padding: 14px 24px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            text-align: center;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            transition: 0.3s;
+        }
+
+        .telegram-btn {
+            color: #fff;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2196ff,
+                    #075dcc
+                );
+
+            box-shadow:
+                0 8px 25px rgba(22, 135, 255, 0.25);
+        }
+
+        .team-btn {
+            color: #1687ff;
+
+            background: transparent;
+
+            border: 1px solid #1687ff;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 30px rgba(22, 135, 255, 0.3);
+        }
+
+
+        /* =====================================================
+           FLOATING IMAGES
+        ===================================================== */
+
+        .floating {
+            position: absolute;
+
+            z-index: 2;
+
+            object-fit: contain;
+
+            pointer-events: none;
+
+            opacity: 0.85;
+
+            will-change: transform;
+        }
+
+        .multiplier {
+            width: 180px;
+
+            right: 3%;
+            top: 15%;
+
+            animation: floatMultiplier 6s ease-in-out infinite;
+        }
+
+        .bonus {
+            width: 160px;
+
+            left: 7%;
+            top: 15%;
+
+            animation: floatBonus 5.5s ease-in-out infinite;
+        }
+
+        .candy {
+            width: 170px;
+
+            right: 7%;
+            bottom: 5%;
+
+            animation: floatCandy 6.5s ease-in-out infinite;
+        }
+
+
+        /* =====================================================
+           FLOAT ANIMATIONS
+        ===================================================== */
+
+        @keyframes floatMultiplier {
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(12px, -20px) rotate(-2deg);
+            }
+        }
+
+        @keyframes floatBonus {
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(-15px, -12px) rotate(-2deg);
+            }
+        }
+
+        @keyframes floatCandy {
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(-12px, -18px) rotate(2deg);
+            }
+        }
+
+
+        /* =====================================================
+           SCROLL
+        ===================================================== */
+
+        .scroll {
+            position: absolute;
+
+            bottom: 25px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            color: rgba(255, 255, 255, 0.6);
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            z-index: 10;
+        }
+
+        .scroll div {
+            font-size: 20px;
+
+            margin-top: 5px;
+
+            color: #1687ff;
+
+            animation: scrollBounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes scrollBounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(6px);
+            }
+        }
+
+
+        /* =====================================================
+           INFO SECTIONS
+        ===================================================== */
+
+        .info-section {
+            min-height: 400px;
+
+            padding: 100px 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background: #080d16;
+
+            border-top: 1px solid rgba(22, 135, 255, 0.12);
+        }
+
+        .info-section:nth-child(even) {
+            background: #05070d;
+        }
+
+        .info-section h2,
+        .contact-section h2 {
+            font-size: clamp(35px, 6vw, 60px);
+
+            margin-bottom: 20px;
+        }
+
+        .info-section h2 span,
+        .contact-section h2 span {
+            color: #1687ff;
+
+            text-shadow:
+                0 0 15px rgba(22, 135, 255, 0.4);
+        }
+
+        .info-section p,
+        .contact-section p {
+            max-width: 650px;
+
+            color: rgba(255, 255, 255, 0.7);
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+        .rewards-section {
+            min-height: 650px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(22, 135, 255, 0.2),
+                    transparent 45%
+                ),
+                #080d16;
+        }
+
+        .rewards-kicker {
+            margin-bottom: 14px;
+
+            color: #39a9ff;
+
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+
+            width: min(100%, 900px);
+            margin-top: 45px;
+        }
+
+        .reward-card {
+            min-height: 210px;
+            padding: 28px 24px;
+
+            text-align: left;
+
+            background: rgba(12, 22, 38, 0.82);
+            border: 1px solid rgba(71, 166, 255, 0.24);
+            border-radius: 14px;
+
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .reward-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(71, 166, 255, 0.7);
+        }
+
+        .reward-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 52px;
+            height: 42px;
+            margin-bottom: 18px;
+            padding: 0 8px;
+
+            color: #07101d;
+            background: #ffd34f;
+            border-radius: 50%;
+
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        .reward-card h3 {
+            margin-bottom: 10px;
+
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .reward-card p {
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        .rewards-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-top: 38px;
+            padding: 15px 24px;
+
+            color: #07101d;
+            background: linear-gradient(135deg, #ffe27b, #d79b2f);
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 900;
+            text-decoration: none;
+
+            box-shadow: 0 10px 30px rgba(220, 167, 48, 0.2);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .rewards-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 34px rgba(220, 167, 48, 0.34);
+        }
+
+        .proof-section {
+            min-height: 620px;
+
+            background:
+                linear-gradient(135deg, rgba(7, 18, 35, 0.96), rgba(4, 8, 16, 0.98)),
+                #05070d;
+        }
+
+        .proof-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-top: 30px;
+            padding: 14px 22px;
+
+            color: #07101d;
+            background: #39ff88;
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 900;
+            text-decoration: none;
+            box-shadow: 0 10px 28px rgba(57, 255, 136, 0.2);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .proof-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 34px rgba(57, 255, 136, 0.34);
+        }
+
+        .proof-gallery {
+            display: flex;
+            gap: 16px;
+
+            width: min(100%, 980px);
+            margin-top: 38px;
+            padding: 8px 2px 16px;
+
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            overscroll-behavior-x: contain;
+            touch-action: pan-x;
+            cursor: grab;
+            scrollbar-color: #39ff88 #07152a;
+            scrollbar-width: auto;
+        }
+
+        .proof-gallery::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .proof-gallery::-webkit-scrollbar-track {
+            background: #07152a;
+            border-radius: 10px;
+        }
+
+        .proof-gallery::-webkit-scrollbar-thumb {
+            background: #39ff88;
+            border-radius: 10px;
+        }
+
+        .proof-gallery:active {
+            cursor: grabbing;
+        }
+
+        .proof-gallery figure {
+            flex: 0 0 280px;
+            margin: 0;
+            padding: 8px;
+
+            scroll-snap-align: center;
+
+            background: #07152a;
+            border: 1px solid rgba(57, 255, 136, 0.28);
+            border-radius: 10px;
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+        }
+
+        .proof-gallery img {
+            display: block;
+
+            width: 100%;
+            aspect-ratio: 4 / 3;
+
+            object-fit: contain;
+            background: #020814;
+            border-radius: 6px;
+            cursor: zoom-in;
+            transition: transform 0.25s ease;
+        }
+
+        .proof-gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        .proof-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 100000;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+
+            background: rgba(2, 7, 15, 0.94);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+
+        .proof-lightbox.is-open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .proof-lightbox img {
+            display: block;
+
+            max-width: min(100%, 1100px);
+            max-height: calc(100vh - 60px);
+
+            object-fit: contain;
+            border: 2px solid #ffd34f;
+            border-radius: 10px;
+            box-shadow: 0 0 35px rgba(255, 211, 79, 0.28);
+        }
+
+        .proof-lightbox-close {
+            position: absolute;
+            top: 18px;
+            right: 24px;
+
+            width: 42px;
+            height: 42px;
+
+            color: #07101d;
+            background: #ffd34f;
+            border: 0;
+            border-radius: 50%;
+
+            font-size: 25px;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .rules-section {
+            min-height: 700px;
+
+            background:
+                radial-gradient(circle at 50% 0%, rgba(22, 135, 255, 0.16), transparent 45%),
+                #080d16;
+        }
+
+        .rules-layout {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+
+            width: min(100%, 900px);
+            margin-top: 38px;
+            text-align: left;
+        }
+
+        .rules-panel {
+            padding: 26px;
+
+            background: rgba(10, 25, 43, 0.9);
+            border: 1px solid rgba(22, 135, 255, 0.28);
+            border-radius: 12px;
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.24);
+        }
+
+        .rules-panel h3 {
+            margin-bottom: 18px;
+            color: #ffd34f;
+            font-size: 20px;
+        }
+
+        .rules-panel p,
+        .rules-panel li {
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .rules-panel ul {
+            display: grid;
+            gap: 8px;
+            padding-left: 20px;
+        }
+
+        .rules-note {
+            width: min(100%, 900px);
+            margin-top: 22px;
+            color: #39ff88;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .referral-section {
+            min-height: 720px;
+
+            background:
+                radial-gradient(circle at 15% 50%, rgba(255, 196, 0, 0.16), transparent 38%),
+                #100b24;
+        }
+
+        .referral-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+            align-items: center;
+            gap: 42px;
+
+            width: min(100%, 1100px);
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .referral-copy h3 {
+            margin-bottom: 14px;
+            color: #ffd34f;
+            font-size: 24px;
+        }
+
+        .referral-copy p {
+            margin-bottom: 18px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .referral-copy ul {
+            display: grid;
+            gap: 10px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .referral-copy li {
+            color: rgba(255, 255, 255, 0.86);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .referral-image {
+            display: block;
+
+            width: 100%;
+            max-height: 680px;
+
+            object-fit: contain;
+            border: 2px solid rgba(255, 211, 79, 0.7);
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(255, 211, 79, 0.2);
+        }
+
+        .referral-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-top: 28px;
+            padding: 14px 22px;
+
+            color: #1b102b;
+            background: linear-gradient(135deg, #ffe56f, #ff9f1c);
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 900;
+            text-decoration: none;
+        }
+
+        .info-section,
+        .info-section:nth-child(even),
+        .contact-section {
+            background:
+                radial-gradient(circle at 15% 50%, rgba(255, 196, 0, 0.16), transparent 38%),
+                #100b24;
+        }
+
+        .proof-gallery figcaption {
+            padding: 10px 4px 3px;
+
+            color: #39ff88;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 700px) {
+            .proof-gallery {
+                gap: 12px;
+                margin-top: 30px;
+            }
+
+            .proof-gallery figure {
+                flex-basis: 230px;
+            }
+
+            .rules-layout {
+                grid-template-columns: 1fr;
+                margin-top: 30px;
+            }
+
+            .referral-layout {
+                grid-template-columns: 1fr;
+                gap: 28px;
+                margin-top: 30px;
+            }
+
+            .referral-image {
+                max-height: 560px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .rewards-grid {
+                grid-template-columns: 1fr;
+                margin-top: 32px;
+            }
+
+            .reward-card {
+                min-height: auto;
+            }
+        }
+
+        @media (min-width: 701px) and (max-width: 900px) {
+            .rewards-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact-section {
+            min-height: 450px;
+
+            padding: 100px 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+                radial-gradient(circle at 15% 50%, rgba(255, 196, 0, 0.16), transparent 38%),
+                #100b24;
+        }
+
+        .contact-button {
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding: 16px 30px;
+
+            border-radius: 8px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2196ff,
+                    #075dcc
+                );
+
+            color: #fff;
+
+            text-decoration: none;
+
+            font-weight: 900;
+
+            font-size: 14px;
+
+            box-shadow:
+                0 10px 30px rgba(22, 135, 255, 0.25);
+
+            transition: 0.3s;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 35px rgba(22, 135, 255, 0.4);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            padding: 40px 20px;
+
+            text-align: center;
+
+            background: #020306;
+
+            border-top: 1px solid rgba(22, 135, 255, 0.15);
+        }
+
+        .footer-logo {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            margin-bottom: 15px;
+        }
+
+        .footer-logo img {
+            width: 45px;
+            height: 45px;
+
+            object-fit: contain;
+
+            border-radius: 50%;
+        }
+
+        .footer-logo span {
+            color: #1687ff;
+
+            font-weight: 900;
+
+            text-shadow:
+                0 0 10px rgba(22, 135, 255, 0.5);
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.45);
+
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav {
+                order: 3;
+
+                width: 100%;
+
+                overflow-x: auto;
+
+                justify-content: flex-start;
+
+                padding: 5px 0 10px;
+            }
+
+            nav a {
+                white-space: nowrap;
+            }
+
+            .floating {
+                opacity: 0.3;
+            }
+
+            .bonus {
+                left: -70px;
+            }
+
+            .multiplier,
+            .candy {
+                right: -70px;
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 10px 15px;
+            }
+
+            .logo-avatar {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo span {
+                font-size: 19px;
+            }
+
+            .nav-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-btn {
+                flex: 1;
+            }
+
+            .hero {
+                min-height: 750px;
+                padding-top: 50px;
+            }
+
+            .main-logo {
+                width: 180px;
+                height: 180px;
+
+                margin-bottom: 20px;
+            }
+
+            .main-logo img {
+                width: 145px;
+                height: 145px;
+            }
+
+            .logo-ring {
+                width: 170px;
+                height: 170px;
+            }
+
+            .hero-content h1 {
+                font-size: 52px;
+                letter-spacing: -2px;
+            }
+
+            .hero-content h2 {
+                font-size: 20px;
+            }
+
+            .reward-text {
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+
+            .button-group {
+                flex-direction: column;
+
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .floating {
+                display: none;
+            }
+
+            .scroll {
+                bottom: 15px;
+            }
+
+            .mouse-glow {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- MOUSE FOLLOWER -->
+    <div class="mouse-trail"></div>
+    <div class="mouse-glow"></div>
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ===================================================== -->
+
+    <header class="navbar">
+
+        <!-- TTPRO BRAND -->
+        <div class="logo">
+
+            <div class="logo-avatar">
+                <img
+                    src="ttpro-logo.png"
+                    alt="TTPRO Logo"
+                >
+            </div>
+
+            <span>TTPRO</span>
+
+        </div>
+
+
+        <nav>
+            <a href="#rewards">Rewards</a>
+            <a href="#proof">Proof of Withdrawal</a>
+            <a href="#referral">Referral</a>
+            <a href="#team">Our Team</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+
+        <div class="nav-buttons">
+
+            <a
+                href="https://t.me/+ZxZAisoTuZw5MWJl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nav-btn"
+            >
+                Join Us
+            </a>
+
+            <a
+                href="https://t.me/LiuChialiang"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nav-btn contact"
+            >
+                Contact Us
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+
+    <main class="hero">
+
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+        <div class="glow glow-three"></div>
+
+
+
+        <div class="platform-side platform-left">
+            <div class="platform-item platform4">
+                <img src="platform4.png" alt="TTPRO Platform 4">
+            </div>
+            <div class="platform-item platform5">
+                <img src="platform5.png" alt="TTPRO Platform 5">
+            </div>
+        </div>
+
+        <div class="platform-side platform-right">
+            <div class="platform-item platform6">
+                <img src="platform6.png" alt="TTPRO Platform 6">
+            </div>
+            <div class="platform-item platform7">
+                <img src="platform7.png" alt="TTPRO Platform 7">
+            </div>
+        </div>
+
+        <!-- CENTER -->
+
+        <section class="hero-content">
+
+            <div class="main-logo">
+
+                <div class="logo-ring"></div>
+
+                <img
+                    src="ttpro-logo.png"
+                    alt="TTPRO Logo"
+                >
+
+            </div>
+
+
+            <h1>
+                JOIN <span>TTPRO</span>
+            </h1>
+
+
+            <h2>
+                Build Your <strong>TEAM</strong> With Us
+            </h2>
+
+
+            <div class="reward-text">
+                EARN MORE • GROW MORE • WIN MORE
+            </div>
+
+
+            <div class="button-group">
+
+                <a
+                    href="https://t.me/LiuChialiang"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn telegram-btn"
+                >
+                    Message Us
+                </a>
+
+                <a
+                    href="https://t.me/+ZxZAisoTuZw5MWJl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn team-btn"
+                >
+                    Join Our Team
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <div class="scroll">
+            <span>SCROLL</span>
+            <div>↓</div>
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         SECTIONS
+    ===================================================== -->
+
+    <section id="rewards" class="info-section rewards-section">
+
+        <div class="rewards-kicker">Built for people who move</div>
+
+        <h2>
+            Unlock Your <span>Rewards</span>
+        </h2>
+
+        <p>
+            Grow with TTPRO and get access to benefits that recognize
+            your consistency, your team, and your results.
+        </p>
+
+        <div class="rewards-grid">
+            <article class="reward-card">
+                <div class="reward-icon">₱88</div>
+                <h3>₱88 FIRST SALARY BONUS</h3>
+                <p>Automatic reflection on your first-time settlement.</p>
+            </article>
+
+            <article class="reward-card">
+                <div class="reward-icon">₱188</div>
+                <h3>₱188 FIRST SALARY BONUS</h3>
+                <p>Join our Telegram channel &amp; group and get a one-time ₱188 bonus on your first salary settlement!</p>
+            </article>
+
+            <article class="reward-card">
+                <div class="reward-icon">₱500</div>
+                <h3>Refer Friends &amp; Earn</h3>
+                <p>Refer your friends and earn a ₱500 referral reward when they join and qualify.</p>
+            </article>
+        </div>
+
+        <a
+            href="https://t.me/+ZxZAisoTuZw5MWJl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rewards-cta"
+        >
+            Get Started on Telegram <span aria-hidden="true">→</span>
+        </a>
+
+    </section>
+
+
+    <section id="proof" class="info-section proof-section">
+
+        <div class="rewards-kicker">Community updates</div>
+
+        <h2>
+            Proof of <span>Withdrawal</span>
+        </h2>
+
+        <p>
+            Follow the latest withdrawal updates and settlement information
+            shared by the TTPRO community.
+        </p>
+
+        <a class="proof-button" href="#proof-gallery">
+            See the latest withdrawal <span aria-hidden="true">↓</span>
+        </a>
+
+        <div id="proof-gallery" class="proof-gallery">
+            <figure>
+                <img src="proof1.jpg" alt="Proof of withdrawal 1">
+                <figcaption>Proof 1</figcaption>
+            </figure>
+            <figure>
+                <img src="proof2.jpg" alt="Proof of withdrawal 2">
+                <figcaption>Proof 2</figcaption>
+            </figure>
+            <figure>
+                <img src="proof3.jpg" alt="Proof of withdrawal 3">
+                <figcaption>Proof 3</figcaption>
+            </figure>
+            <figure>
+                <img src="proof4.jpg" alt="Proof of withdrawal 4">
+                <figcaption>Proof 4</figcaption>
+            </figure>
+        </div>
+
+    </section>
+
+    <div class="proof-lightbox" role="dialog" aria-modal="true" aria-label="Full proof image viewer">
+        <button class="proof-lightbox-close" type="button" aria-label="Close full image viewer">&times;</button>
+        <img src="" alt="">
+    </div>
+
+
+    <section id="rules" class="info-section rules-section">
+
+        <div class="rewards-kicker">Agent Program</div>
+
+        <h2>
+            Agent Rules <span>&amp; Earnings</span>
+        </h2>
+
+        <p>
+            Clear guidelines, benefits, and earning opportunities for every TTPRO agent.
+        </p>
+
+        <div class="rules-layout">
+            <article class="rules-panel">
+                <h3>👋 Agent Guidelines</h3>
+                <p>Here are the rules and guidelines for all agents:</p>
+                <ul>
+                    <li>💰 Earn ₱25–₱300 per qualified FTD.</li>
+                    <li>📊 FTD is based on deposits, valid betting, redeposits, and player win/loss performance.</li>
+                    <li>📈 Your earnings depend on player quality and activity.</li>
+                </ul>
+            </article>
+
+            <article class="rules-panel">
+                <h3>🎁 Agent Benefits</h3>
+                <ul>
+                    <li>💎 Earn up to ₱300 per FTD.</li>
+                    <li>🔄 Unlimited salary requests.</li>
+                    <li>💵 Daily or weekly payouts.</li>
+                    <li>🕑 Data updates every 2 hours.</li>
+                    <li>👥 Minimum of 5 qualified players per request.</li>
+                </ul>
+            </article>
+
+            <article class="rules-panel">
+                <h3>⚠️ Rules</h3>
+                <ul>
+                    <li>❌ No fake or duplicate accounts.</li>
+                    <li>❌ No duplicate IP addresses or devices.</li>
+                    <li>❌ No fraudulent activity.</li>
+                    <li>❌ No PVP or live games.</li>
+                    <li>✅ Only legitimate and qualified players will be counted.</li>
+                </ul>
+            </article>
+
+            <article class="rules-panel">
+                <h3>📌 Important</h3>
+                <p>Player performance affects your FTD value. Higher-quality and more active players may result in higher earnings.</p>
+            </article>
+        </div>
+
+    </section>
+
+
+    <section id="referral" class="info-section referral-section">
+
+        <div class="rewards-kicker">777NV TT Agent Referral Programme</div>
+
+        <h2>
+            Refer a Friend &amp; <span>Earn ₱500!</span>
+        </h2>
+
+        <div class="referral-layout">
+            <div class="referral-copy">
+                <h3>📣 Grow Your Team, Earn More</h3>
+
+                <p>
+                    Earn ₱500 when your referred agent successfully recruits
+                    20 or more qualified players.
+                </p>
+
+                <ul>
+                    <li>✅ No maximum reward limit</li>
+                    <li>✅ Earn multiple referral rewards</li>
+                    <li>✅ 48-hour review period</li>
+                    <li>✅ Automatic credit after approval</li>
+                </ul>
+
+                <p>
+                    The more qualified agents you invite, the more you can earn!
+                </p>
+
+                <p><strong>INVITE. BUILD. GROW. EARN WITH 777NV!</strong></p>
+
+                <a
+                    href="https://t.me/LiuChialiang"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="referral-cta"
+                >
+                    Message Us Today <span aria-hidden="true">🔥</span>
+                </a>
+            </div>
+
+            <img
+                src="referral.png"
+                class="referral-image"
+                alt="777NV TT Agent Referral Programme"
+            >
+        </div>
+
+    </section>
+
+
+    <section id="team" class="info-section">
+
+        <h2>
+            Our <span>Team</span>
+        </h2>
+
+        <p>
+            Meet Karawai, the manager and boss behind the TTPRO team.
+            With clear direction and strong leadership, Karawai helps agents
+            build, grow, and earn together.
+        </p>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="contact-section">
+
+        <h2>
+            Interested in <span>Joining?</span>
+        </h2>
+
+        <p>
+            If you are interested to know the details,
+            message us on Telegram to learn more
+            and become part of our team.
+        </p>
+
+        <a
+            href="https://t.me/+ZxZAisoTuZw5MWJl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-button"
+        >
+            JOIN TTPRO TELEGRAM GROUP
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+
+            <img
+                src="ttpro-logo.png"
+                alt="TTPRO Logo"
+            >
+
+            <span>TTPRO</span>
+
+        </div>
+
+        <p>
+            © 2026 TTPRO. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         MOUSE JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        const mouseGlow = document.querySelector(".mouse-glow");
+        const mouseTrail = document.querySelector(".mouse-trail");
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        let currentX = 0;
+        let currentY = 0;
+
+
+        document.addEventListener("mousemove", (event) => {
+
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+
+            mouseGlow.style.opacity = "1";
+            mouseTrail.style.opacity = "1";
+
+        });
+
+
+        function animateMouse() {
+
+            currentX += (mouseX - currentX) * 0.18;
+            currentY += (mouseY - currentY) * 0.18;
+
+            mouseGlow.style.left = currentX + "px";
+            mouseGlow.style.top = currentY + "px";
+
+            const trailX = mouseX - currentX;
+            const trailY = mouseY - currentY;
+            const trailLength = Math.sqrt(trailX ** 2 + trailY ** 2);
+            const trailAngle = Math.atan2(trailY, trailX) * (180 / Math.PI);
+
+            mouseTrail.style.left = currentX + "px";
+            mouseTrail.style.top = currentY + "px";
+            mouseTrail.style.width = trailLength + "px";
+            mouseTrail.style.transform = "rotate(" + trailAngle + "deg)";
+
+            requestAnimationFrame(animateMouse);
+
+        }
+
+        animateMouse();
+
+
+        document.addEventListener("mouseleave", () => {
+            mouseGlow.style.opacity = "0";
+            mouseTrail.style.opacity = "0";
+        });
+
+        document.addEventListener("mouseenter", () => {
+            mouseGlow.style.opacity = "1";
+            mouseTrail.style.opacity = "1";
+        });
+
+        const proofLightbox = document.querySelector(".proof-lightbox");
+        const proofLightboxImage = proofLightbox.querySelector("img");
+        const proofLightboxClose = proofLightbox.querySelector(".proof-lightbox-close");
+
+        function closeProofLightbox() {
+            proofLightbox.classList.remove("is-open");
+            proofLightboxImage.src = "";
+            document.body.style.overflow = "";
+        }
+
+        document.querySelectorAll(".proof-gallery img").forEach((proofImage) => {
+            proofImage.addEventListener("click", () => {
+                proofLightboxImage.src = proofImage.src;
+                proofLightboxImage.alt = proofImage.alt;
+                proofLightbox.classList.add("is-open");
+                document.body.style.overflow = "hidden";
+            });
+        });
+
+        proofLightboxClose.addEventListener("click", closeProofLightbox);
+
+        proofLightbox.addEventListener("click", (event) => {
+            if (event.target === proofLightbox) {
+                closeProofLightbox();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && proofLightbox.classList.contains("is-open")) {
+                closeProofLightbox();
+            }
+        });
+
+    </script>
+
+</body>
+</html>
