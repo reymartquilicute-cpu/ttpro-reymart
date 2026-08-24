@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TTPRO | Join Our Team Karawai</title>
+    <title>TTPRO | Join Our Team Reymart</title>
 
     <style>
         /* =====================================================
@@ -23,7 +23,7 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #05070d;
+            background: #061016;
             color: #fff;
             overflow-x: hidden;
         }
@@ -59,6 +59,25 @@
             opacity: 0;
 
             mix-blend-mode: screen;
+
+            transition: opacity 0.2s ease;
+        }
+
+        .mouse-trail {
+            position: fixed;
+            left: 0;
+            top: 0;
+
+            width: 0;
+            height: 2px;
+
+            background: linear-gradient(90deg, transparent, #39ff88);
+            box-shadow: 0 0 8px #39ff88, 0 0 16px rgba(57, 255, 136, 0.75);
+
+            pointer-events: none;
+            transform-origin: left center;
+            z-index: 99998;
+            opacity: 0;
 
             transition: opacity 0.2s ease;
         }
@@ -204,7 +223,7 @@
         }
 
         nav a {
-            color: #fff;
+            color: #ffd34f;
 
             text-decoration: none;
 
@@ -216,10 +235,10 @@
         }
 
         nav a:hover {
-            color: #1687ff;
+            color: #fff2a8;
 
             text-shadow:
-                0 0 10px rgba(22, 135, 255, 0.7);
+                0 0 10px rgba(255, 211, 79, 0.8);
         }
 
 
@@ -360,6 +379,221 @@
 
             bottom: -100px;
             left: 40%;
+        }
+
+        .platform3-orb {
+            position: absolute;
+            z-index: 5;
+
+            top: 14%;
+            right: 4%;
+
+            width: 300px;
+            height: 230px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: radial-gradient(circle, #0b315e 0%, #06152c 72%);
+            border-radius: 18px;
+            pointer-events: none;
+
+            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.55));
+            animation: mainLogoFloat 4s ease-in-out infinite;
+        }
+
+        .platform3-orb::before {
+            content: "";
+
+            position: absolute;
+
+            width: 215px;
+            height: 215px;
+
+            border: 1px solid rgba(22, 135, 255, 0.5);
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 25px rgba(22, 135, 255, 0.25),
+                inset 0 0 25px rgba(22, 135, 255, 0.12);
+
+            animation: ringPulse 3s ease-in-out infinite;
+        }
+
+        .platform3-orb img {
+            position: relative;
+            z-index: 1;
+
+            width: 280px;
+            height: 210px;
+
+            object-fit: contain;
+        }
+
+        @media (max-width: 600px) {
+            .platform3-orb {
+                top: 16%;
+                right: 1%;
+                width: 190px;
+                height: 145px;
+            }
+
+            .platform3-orb::before {
+                width: 136px;
+                height: 136px;
+            }
+
+            .platform3-orb img {
+                width: 180px;
+                height: 135px;
+            }
+        }
+
+        .platform-side {
+            position: absolute;
+            z-index: 6;
+
+            top: 50%;
+
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+
+            transform: translateY(-50%);
+        }
+
+        .platform-left {
+            left: 3%;
+        }
+
+        .platform-right {
+            right: 3%;
+        }
+
+        .platform-item {
+            position: relative;
+
+            width: 120px;
+            height: 120px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(8, 21, 44, 0.9);
+            border: 2px solid #ffd34f;
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 15px rgba(255, 211, 79, 0.55),
+                inset 0 0 18px rgba(255, 211, 79, 0.18);
+
+            animation: platformFloat 5s ease-in-out infinite;
+        }
+
+        .platform-item::before {
+            content: "";
+
+            position: absolute;
+
+            width: 104px;
+            height: 104px;
+
+            border: 1px solid rgba(255, 211, 79, 0.7);
+            border-radius: 50%;
+            animation: ringPulse 3s ease-in-out infinite;
+        }
+
+        .platform-item img {
+            position: relative;
+            z-index: 1;
+
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            pointer-events: none;
+
+            filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.55));
+        }
+
+        .platform4 {
+            animation-delay: 0.4s;
+        }
+
+        .platform5 {
+            animation-delay: 1.6s;
+        }
+
+        .platform6 {
+            animation-delay: 2.8s;
+        }
+
+        .platform7 {
+            animation-delay: 4s;
+        }
+
+        @keyframes platformFloat {
+            0%,
+            100% {
+                transform: translateY(0) rotate(-3deg);
+            }
+
+            50% {
+                transform: translateY(-14px) rotate(3deg);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .platform-side {
+                gap: 10px;
+            }
+
+            .platform-item {
+                width: 88px;
+                height: 88px;
+                opacity: 0.75;
+            }
+
+            .platform-item::before {
+                width: 76px;
+                height: 76px;
+            }
+
+            .platform-item img {
+                width: 74px;
+                height: 74px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .platform-left {
+                left: 1%;
+            }
+
+            .platform-right {
+                right: 1%;
+            }
+
+            .platform-side {
+                gap: 5px;
+            }
+
+            .platform-item {
+                width: 68px;
+                height: 68px;
+                opacity: 0.6;
+            }
+
+            .platform-item::before {
+                width: 58px;
+                height: 58px;
+            }
+
+            .platform-item img {
+                width: 58px;
+                height: 58px;
+            }
         }
 
 
@@ -620,15 +854,6 @@
             will-change: transform;
         }
 
-        .character {
-            width: 180px;
-
-            left: 2%;
-            bottom: 5%;
-
-            animation: floatCharacter 5s ease-in-out infinite;
-        }
-
         .multiplier {
             width: 180px;
 
@@ -660,17 +885,6 @@
         /* =====================================================
            FLOAT ANIMATIONS
         ===================================================== */
-
-        @keyframes floatCharacter {
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-18px) rotate(2deg);
-            }
-        }
 
         @keyframes floatMultiplier {
             0%,
@@ -808,6 +1022,629 @@
             line-height: 1.8;
         }
 
+        .rewards-section {
+            min-height: 650px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(22, 135, 255, 0.2),
+                    transparent 45%
+                ),
+                #080d16;
+        }
+
+        .rewards-kicker {
+            margin-bottom: 14px;
+
+            color: #39a9ff;
+
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+
+            width: min(100%, 900px);
+            margin-top: 45px;
+        }
+
+        .reward-card {
+            min-height: 210px;
+            padding: 28px 24px;
+
+            text-align: left;
+
+            background: rgba(12, 22, 38, 0.82);
+            border: 1px solid rgba(71, 166, 255, 0.24);
+            border-radius: 14px;
+
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .reward-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(71, 166, 255, 0.7);
+        }
+
+        .reward-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 52px;
+            height: 42px;
+            margin-bottom: 18px;
+            padding: 0 8px;
+
+            color: #07101d;
+            background: #ffd34f;
+            border-radius: 50%;
+
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        .reward-card h3 {
+            margin-bottom: 10px;
+
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .reward-card p {
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        .rewards-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-top: 38px;
+            padding: 15px 24px;
+
+            color: #07101d;
+            background: linear-gradient(135deg, #ffe27b, #d79b2f);
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 900;
+            text-decoration: none;
+
+            box-shadow: 0 10px 30px rgba(220, 167, 48, 0.2);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .rewards-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 34px rgba(220, 167, 48, 0.34);
+        }
+
+        .proof-section {
+            min-height: 620px;
+
+            background:
+                linear-gradient(135deg, rgba(7, 18, 35, 0.96), rgba(4, 8, 16, 0.98)),
+                #05070d;
+        }
+
+        .proof-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-top: 30px;
+            padding: 14px 22px;
+
+            color: #07101d;
+            background: #39ff88;
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 900;
+            text-decoration: none;
+            box-shadow: 0 10px 28px rgba(57, 255, 136, 0.2);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .proof-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 34px rgba(57, 255, 136, 0.34);
+        }
+
+        .proof-gallery {
+            display: flex;
+            gap: 16px;
+
+            width: min(100%, 980px);
+            margin-top: 38px;
+            padding: 8px 2px 16px;
+
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            overscroll-behavior-x: contain;
+            touch-action: pan-x;
+            cursor: grab;
+            scrollbar-color: #39ff88 #07152a;
+            scrollbar-width: auto;
+        }
+
+        .proof-gallery::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .proof-gallery::-webkit-scrollbar-track {
+            background: #07152a;
+            border-radius: 10px;
+        }
+
+        .proof-gallery::-webkit-scrollbar-thumb {
+            background: #39ff88;
+            border-radius: 10px;
+        }
+
+        .proof-gallery:active {
+            cursor: grabbing;
+        }
+
+        .proof-gallery figure {
+            flex: 0 0 280px;
+            margin: 0;
+            padding: 8px;
+
+            scroll-snap-align: center;
+
+            background: #07152a;
+            border: 1px solid rgba(57, 255, 136, 0.28);
+            border-radius: 10px;
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+        }
+
+        .proof-gallery img {
+            display: block;
+
+            width: 100%;
+            aspect-ratio: 4 / 3;
+
+            object-fit: contain;
+            background: #020814;
+            border-radius: 6px;
+            cursor: zoom-in;
+            transition: transform 0.25s ease;
+        }
+
+        .proof-gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        .proof-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 100000;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+
+            background: rgba(2, 7, 15, 0.94);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+
+        .proof-lightbox.is-open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .proof-lightbox img {
+            display: block;
+
+            max-width: min(100%, 1100px);
+            max-height: calc(100vh - 60px);
+
+            object-fit: contain;
+            border: 2px solid #ffd34f;
+            border-radius: 10px;
+            box-shadow: 0 0 35px rgba(255, 211, 79, 0.28);
+        }
+
+        .proof-lightbox-close {
+            position: absolute;
+            top: 18px;
+            right: 24px;
+
+            width: 42px;
+            height: 42px;
+
+            color: #07101d;
+            background: #ffd34f;
+            border: 0;
+            border-radius: 50%;
+
+            font-size: 25px;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .rules-section {
+            min-height: 700px;
+
+            background:
+                radial-gradient(circle at 50% 0%, rgba(22, 135, 255, 0.16), transparent 45%),
+                #080d16;
+        }
+
+        .rules-layout {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+
+            width: min(100%, 900px);
+            margin-top: 38px;
+            text-align: left;
+        }
+
+        .rules-panel {
+            padding: 26px;
+
+            background: rgba(10, 25, 43, 0.9);
+            border: 1px solid rgba(22, 135, 255, 0.28);
+            border-radius: 12px;
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.24);
+        }
+
+        .rules-panel h3 {
+            margin-bottom: 18px;
+            color: #ffd34f;
+            font-size: 20px;
+        }
+
+        .rules-panel p,
+        .rules-panel li {
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .rules-panel ul {
+            display: grid;
+            gap: 8px;
+            padding-left: 20px;
+        }
+
+        .rules-note {
+            width: min(100%, 900px);
+            margin-top: 22px;
+            color: #39ff88;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .referral-section {
+            min-height: 720px;
+
+            background:
+                radial-gradient(circle at 15% 50%, rgba(255, 196, 0, 0.16), transparent 38%),
+                #100b24;
+        }
+
+        .referral-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+            align-items: center;
+            gap: 42px;
+
+            width: min(100%, 1100px);
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .referral-copy h3 {
+            margin-bottom: 14px;
+            color: #ffd34f;
+            font-size: 24px;
+        }
+
+        .referral-copy p {
+            margin-bottom: 18px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .referral-copy ul {
+            display: grid;
+            gap: 10px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .referral-copy li {
+            color: rgba(255, 255, 255, 0.86);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .referral-image {
+            display: block;
+
+            width: 100%;
+            max-height: 680px;
+
+            object-fit: contain;
+            border: 2px solid rgba(255, 211, 79, 0.7);
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(255, 211, 79, 0.2);
+        }
+
+        .referral-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-top: 28px;
+            padding: 14px 22px;
+
+            color: #1b102b;
+            background: linear-gradient(135deg, #ffe56f, #ff9f1c);
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 900;
+            text-decoration: none;
+        }
+
+        .karawai-section {
+            min-height: 680px;
+
+            background:
+                radial-gradient(circle at 85% 20%, rgba(57, 255, 136, 0.12), transparent 34%),
+                #07152a;
+        }
+
+        .karawai-profile {
+            display: grid;
+            grid-template-columns: minmax(240px, 0.75fr) minmax(0, 1.25fr);
+            align-items: center;
+            gap: 54px;
+
+            width: min(100%, 960px);
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .karawai-photo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1 / 1;
+            width: min(100%, 330px);
+            margin: 0 auto;
+            overflow: hidden;
+
+            color: #ffd34f;
+            background:
+                linear-gradient(145deg, rgba(255, 211, 79, 0.15), rgba(22, 135, 255, 0.16)),
+                #0b1d34;
+            border: 2px solid rgba(255, 211, 79, 0.65);
+            border-radius: 18px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.34), 0 0 35px rgba(255, 211, 79, 0.1);
+            animation: reymartPhotoFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes reymartPhotoFloat {
+            0%,
+            100% {
+                transform: translateY(0);
+                box-shadow: 0 20px 45px rgba(0, 0, 0, 0.34), 0 0 35px rgba(255, 211, 79, 0.1);
+            }
+
+            50% {
+                transform: translateY(-12px);
+                box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3), 0 0 45px rgba(57, 255, 136, 0.2);
+            }
+        }
+
+        .karawai-photo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            cursor: zoom-in;
+            transition: opacity 0.35s ease, transform 0.25s ease, filter 0.25s ease;
+        }
+
+        .karawai-photo.is-changing img {
+            opacity: 0;
+        }
+
+        .karawai-photo:hover img {
+            transform: scale(1.03);
+            filter: brightness(1.08);
+        }
+
+        .karawai-copy h3 {
+            margin-bottom: 8px;
+            color: #1687ff;
+            font-size: clamp(28px, 4vw, 42px);
+            animation: karawaiNameBlink 1.8s ease-in-out infinite;
+        }
+
+        @keyframes karawaiNameBlink {
+            0%,
+            100% {
+                color: #1687ff;
+                opacity: 1;
+                text-shadow: 0 0 12px rgba(22, 135, 255, 0.75);
+            }
+
+            50% {
+                color: #39ff88;
+                opacity: 0.72;
+                text-shadow: 0 0 18px rgba(57, 255, 136, 0.85);
+            }
+        }
+
+        .karawai-role {
+            margin-bottom: 20px;
+            color: #39ff88;
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .karawai-copy p {
+            margin-bottom: 18px;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        .karawai-message {
+            padding: 18px 20px;
+            background: rgba(10, 25, 43, 0.82);
+            border-left: 3px solid #ffd34f;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .karawai-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 12px;
+            padding: 14px 22px;
+            color: #07152a;
+            background: linear-gradient(135deg, #39ff88, #ffd34f);
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 900;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .karawai-socials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .karawai-socials .karawai-cta {
+            margin-top: 0;
+        }
+
+        .karawai-socials svg {
+            width: 18px;
+            height: 18px;
+            flex: 0 0 18px;
+            fill: currentColor;
+        }
+
+        .karawai-facebook {
+            color: #fff;
+            background: linear-gradient(135deg, #1877f2, #0754b8);
+        }
+
+        .karawai-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(57, 255, 136, 0.24);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .karawai-photo {
+                animation: none;
+            }
+
+            .karawai-copy h3 {
+                animation: none;
+            }
+        }
+
+        .info-section,
+        .info-section:nth-child(even),
+        .contact-section {
+            background:
+                radial-gradient(circle at 15% 50%, rgba(57, 255, 136, 0.1), transparent 38%),
+                linear-gradient(135deg, #0b1720 0%, #071016 52%, #0a1d25 100%);
+        }
+
+        .proof-gallery figcaption {
+            padding: 10px 4px 3px;
+
+            color: #39ff88;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 700px) {
+            .proof-gallery {
+                gap: 12px;
+                margin-top: 30px;
+            }
+
+            .proof-gallery figure {
+                flex-basis: 230px;
+            }
+
+            .rules-layout {
+                grid-template-columns: 1fr;
+                margin-top: 30px;
+            }
+
+            .referral-layout {
+                grid-template-columns: 1fr;
+                gap: 28px;
+                margin-top: 30px;
+            }
+
+            .referral-image {
+                max-height: 560px;
+            }
+
+            .karawai-profile {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin-top: 30px;
+            }
+
+            .karawai-photo {
+                width: min(100%, 260px);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .rewards-grid {
+                grid-template-columns: 1fr;
+                margin-top: 32px;
+            }
+
+            .reward-card {
+                min-height: auto;
+            }
+        }
+
+        @media (min-width: 701px) and (max-width: 900px) {
+            .rewards-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
 
         /* =====================================================
            CONTACT
@@ -828,12 +1665,8 @@
             text-align: center;
 
             background:
-                radial-gradient(
-                    circle at center,
-                    rgba(20, 110, 255, 0.12),
-                    transparent 50%
-                ),
-                #05070d;
+                radial-gradient(circle at 15% 50%, rgba(255, 196, 0, 0.16), transparent 38%),
+                #100b24;
         }
 
         .contact-button {
@@ -955,7 +1788,6 @@
                 opacity: 0.3;
             }
 
-            .character,
             .bonus {
                 left: -70px;
             }
@@ -1061,6 +1893,7 @@
 <body>
 
     <!-- MOUSE FOLLOWER -->
+    <div class="mouse-trail"></div>
     <div class="mouse-glow"></div>
 
 
@@ -1087,9 +1920,7 @@
 
         <nav>
             <a href="#rewards">Rewards</a>
-            <a href="#bonuses">Bonuses</a>
-            <a href="#promotions">Promotions</a>
-            <a href="#vip">VIP</a>
+            <a href="#proof">Proof of Withdrawal</a>
             <a href="#referral">Referral</a>
             <a href="#team">Our Team</a>
             <a href="#contact">Contact</a>
@@ -1099,7 +1930,7 @@
         <div class="nav-buttons">
 
             <a
-                href="https://t.me/+YvUJWb_EmxE5ZWU1"
+                href="https://t.me/+ZxZAisoTuZw5MWJl"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="nav-btn"
@@ -1131,31 +1962,25 @@
         <div class="glow glow-two"></div>
         <div class="glow glow-three"></div>
 
-      <!-- FLOATING IMAGES -->
 
-        <img
-            src="character.png"
-            class="floating character"
-            alt="TTPRO Character"
-        >
 
-        <img
-            src="platform1.png"
-            class="floating platform1"
-            alt="platform1.png"
-        >
+        <div class="platform-side platform-left">
+            <div class="platform-item platform4">
+                <img src="platform4.png" alt="TTPRO Platform 4">
+            </div>
+            <div class="platform-item platform5">
+                <img src="platform5.png" alt="TTPRO Platform 5">
+            </div>
+        </div>
 
-        <img
-            src="platform2.png"
-            class="floating platform2"
-            alt="platform2.png"
-        >
-
-        <img
-            src="platform3.png"
-            class="floating platform3"
-            alt="platform3.png"
-        >
+        <div class="platform-side platform-right">
+            <div class="platform-item platform6">
+                <img src="platform6.png" alt="TTPRO Platform 6">
+            </div>
+            <div class="platform-item platform7">
+                <img src="platform7.png" alt="TTPRO Platform 7">
+            </div>
+        </div>
 
         <!-- CENTER -->
 
@@ -1200,7 +2025,7 @@
                 </a>
 
                 <a
-                    href="https://t.me/+YvUJWb_EmxE5ZWU1"
+                    href="https://t.me/+ZxZAisoTuZw5MWJl"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn team-btn"
@@ -1225,85 +2050,244 @@
          SECTIONS
     ===================================================== -->
 
-    <section id="rewards" class="info-section">
+    <section id="team" class="info-section karawai-section">
+
+        <div class="rewards-kicker">Meet the leader</div>
+
+        <h2>Meet <span>Reymart</span></h2>
+
+        <div class="karawai-profile">
+            <div class="karawai-photo" data-slideshow-images="reymart.png,reymart1.png,reymart3.png,reymart4.png">
+                <a href="reymart.png" target="_blank" rel="noopener noreferrer" aria-label="Open Reymart photo in a new tab">
+                    <img src="reymart.png" alt="Reymart Quilicute, manager and marketing team leader">
+                </a>
+            </div>
+
+            <div class="karawai-copy">
+                <h3>Reymart Quilicute</h3>
+                <div class="karawai-role">MANAGER AND MARKETING TEAM LEADER</div>
+
+                <p>
+                    Hi, I am Reymart Quilicute. I lead the TTPRO team with one goal:
+                    to help motivated agents build a stronger future through
+                    consistency, teamwork, and real opportunities.
+                </p>
+
+                <p class="karawai-message">
+                    Whether you are starting from zero or ready to grow your
+                    own team, I am here to guide you step by step. Let us
+                    learn, build, and earn together.
+                </p>
+
+                <div class="karawai-socials">
+                    <a href="https://t.me/LiuChialiang" target="_blank" rel="noopener noreferrer" class="karawai-cta" aria-label="Message Reymart Quilicute on Telegram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M21.7 3.3 2.9 10.55c-1.28.51-1.27 1.22-.23 1.53l4.83 1.5 1.85 5.67c.23.64.12.9.78.9.51 0 .73-.23.99-.51l2.35-2.28 4.89 3.61c.9.5 1.55.24 1.78-.83l3.2-15.08c.34-1.34-.51-1.95-1.63-1.76Zm-2.39 3.35-8.9 7.92-.35 3.42 10.63-7.04Z"/>
+                        </svg>
+                        Telegram <span aria-hidden="true">→</span>
+                    </a>
+
+                    <a href="https://www.facebook.com/mngrreymart" target="_blank" rel="noopener noreferrer" class="karawai-cta karawai-facebook" aria-label="Visit Reymart Quilicute on Facebook">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M14.2 21v-7h2.35l.35-2.73H14.2V9.52c0-.79.22-1.33 1.36-1.33h1.46V5.75c-.25-.03-1.12-.11-2.13-.11-2.1 0-3.54 1.28-3.54 3.64v1.99H9v2.73h2.35v7h2.85Z"/>
+                        </svg>
+                        Facebook <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="rewards" class="info-section rewards-section">
+
+        <div class="rewards-kicker">Built for people who move</div>
 
         <h2>
-            TTPRO <span>Rewards</span>
+            Unlock Your <span>Rewards</span>
         </h2>
 
         <p>
-            Discover our latest rewards and opportunities
-            available for our team members.
+            Grow with TTPRO and get access to benefits that recognize
+            your consistency, your team, and your results.
         </p>
+
+        <div class="rewards-grid">
+            <article class="reward-card">
+                <div class="reward-icon">₱88</div>
+                <h3>₱88 FIRST SALARY BONUS</h3>
+                <p>Automatic reflection on your first-time settlement.</p>
+            </article>
+
+            <article class="reward-card">
+                <div class="reward-icon">₱188</div>
+                <h3>₱188 FIRST SALARY BONUS</h3>
+                <p>Join our Telegram channel &amp; group and get a one-time ₱188 bonus on your first salary settlement!</p>
+            </article>
+
+            <article class="reward-card">
+                <div class="reward-icon">₱500</div>
+                <h3>Refer Friends &amp; Earn</h3>
+                <p>Refer your friends and earn a ₱500 referral reward when they join and qualify.</p>
+            </article>
+        </div>
+
+        <a
+            href="https://t.me/+ZxZAisoTuZw5MWJl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rewards-cta"
+        >
+            Get Started on Telegram <span aria-hidden="true">→</span>
+        </a>
 
     </section>
 
 
-    <section id="bonuses" class="info-section">
+    <section id="proof" class="info-section proof-section">
+
+        <div class="rewards-kicker">Community updates</div>
 
         <h2>
-            Exclusive <span>Bonuses</span>
+            Proof of <span>Withdrawal</span>
         </h2>
 
         <p>
-            Enjoy special bonuses and promotional rewards
-            when you become part of our team.
+            Follow the latest withdrawal updates and settlement information
+            shared by the TTPRO community.
         </p>
+
+        <a class="proof-button" href="#proof-gallery">
+            See the latest withdrawal <span aria-hidden="true">↓</span>
+        </a>
+
+        <div id="proof-gallery" class="proof-gallery">
+            <figure>
+                <img src="p1.png" alt="Proof of withdrawal 1">
+                <figcaption>Proof 1</figcaption>
+            </figure>
+            <figure>
+                <img src="p3.png" alt="Proof of withdrawal 3">
+                <figcaption>Proof 3</figcaption>
+            </figure>
+            <figure>
+                <img src="p4.png" alt="Proof of withdrawal 4">
+                <figcaption>Proof 4</figcaption>
+            </figure>
+            <figure>
+                <img src="p5.png" alt="Proof of withdrawal 5">
+                <figcaption>Proof 5</figcaption>
+            </figure>
+        </div>
+
+    </section>
+
+    <div class="proof-lightbox" role="dialog" aria-modal="true" aria-label="Full proof image viewer">
+        <button class="proof-lightbox-close" type="button" aria-label="Close full image viewer">&times;</button>
+        <img src="" alt="">
+    </div>
+
+
+    <section id="rules" class="info-section rules-section">
+
+        <div class="rewards-kicker">Agent Program</div>
+
+        <h2>
+            Agent Rules <span>&amp; Earnings</span>
+        </h2>
+
+        <p>
+            Clear guidelines, benefits, and earning opportunities for every TTPRO agent.
+        </p>
+
+        <div class="rules-layout">
+            <article class="rules-panel">
+                <h3>👋 Agent Guidelines</h3>
+                <p>Here are the rules and guidelines for all agents:</p>
+                <ul>
+                    <li>💰 Earn ₱25–₱300 per qualified FTD.</li>
+                    <li>📊 FTD is based on deposits, valid betting, redeposits, and player win/loss performance.</li>
+                    <li>📈 Your earnings depend on player quality and activity.</li>
+                </ul>
+            </article>
+
+            <article class="rules-panel">
+                <h3>🎁 Agent Benefits</h3>
+                <ul>
+                    <li>💎 Earn up to ₱300 per FTD.</li>
+                    <li>🔄 Unlimited salary requests.</li>
+                    <li>💵 Daily or weekly payouts.</li>
+                    <li>🕑 Data updates every 2 hours.</li>
+                    <li>👥 Minimum of 5 qualified players per request.</li>
+                </ul>
+            </article>
+
+            <article class="rules-panel">
+                <h3>⚠️ Rules</h3>
+                <ul>
+                    <li>❌ No fake or duplicate accounts.</li>
+                    <li>❌ No duplicate IP addresses or devices.</li>
+                    <li>❌ No fraudulent activity.</li>
+                    <li>❌ No PVP or live games.</li>
+                    <li>✅ Only legitimate and qualified players will be counted.</li>
+                </ul>
+            </article>
+
+            <article class="rules-panel">
+                <h3>📌 Important</h3>
+                <p>Player performance affects your FTD value. Higher-quality and more active players may result in higher earnings.</p>
+            </article>
+        </div>
 
     </section>
 
 
-    <section id="promotions" class="info-section">
+    <section id="referral" class="info-section referral-section">
+
+        <div class="rewards-kicker">777NV TT Agent Referral Programme</div>
 
         <h2>
-            Latest <span>Promotions</span>
+            Refer a Friend &amp; <span>Earn ₱500!</span>
         </h2>
 
-        <p>
-            Stay updated with the latest TTPRO promotions.
-        </p>
+        <div class="referral-layout">
+            <div class="referral-copy">
+                <h3>📣 Grow Your Team, Earn More</h3>
 
-    </section>
+                <p>
+                    Earn ₱500 when your referred agent successfully recruits
+                    20 or more qualified players.
+                </p>
 
+                <ul>
+                    <li>✅ No maximum reward limit</li>
+                    <li>✅ Earn multiple referral rewards</li>
+                    <li>✅ 48-hour review period</li>
+                    <li>✅ Automatic credit after approval</li>
+                </ul>
 
-    <section id="vip" class="info-section">
+                <p>
+                    The more qualified agents you invite, the more you can earn!
+                </p>
 
-        <h2>
-            TTPRO <span>VIP</span>
-        </h2>
+                <p><strong>INVITE. BUILD. GROW. EARN WITH 777NV!</strong></p>
 
-        <p>
-            Special opportunities and benefits
-            for our growing team.
-        </p>
+                <a
+                    href="https://t.me/LiuChialiang"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="referral-cta"
+                >
+                    Message Us Today <span aria-hidden="true">🔥</span>
+                </a>
+            </div>
 
-    </section>
-
-
-    <section id="referral" class="info-section">
-
-        <h2>
-            <span>Referral</span> Program
-        </h2>
-
-        <p>
-            Invite new members and grow your team
-            with TTPRO.
-        </p>
-
-    </section>
-
-
-    <section id="team" class="info-section">
-
-        <h2>
-            Our <span>Team</span>
-        </h2>
-
-        <p>
-            Become part of our community and grow
-            together with TTPRO.
-        </p>
+            <img
+                src="referral.png"
+                class="referral-image"
+                alt="777NV TT Agent Referral Programme"
+            >
+        </div>
 
     </section>
 
@@ -1323,7 +2307,7 @@
         </p>
 
         <a
-            href="https://t.me/+YvUJWb_EmxE5ZWU1"
+            href="https://t.me/+ZxZAisoTuZw5MWJl"
             target="_blank"
             rel="noopener noreferrer"
             class="contact-button"
@@ -1363,6 +2347,7 @@
     <script>
 
         const mouseGlow = document.querySelector(".mouse-glow");
+        const mouseTrail = document.querySelector(".mouse-trail");
 
         let mouseX = 0;
         let mouseY = 0;
@@ -1377,6 +2362,7 @@
             mouseY = event.clientY;
 
             mouseGlow.style.opacity = "1";
+            mouseTrail.style.opacity = "1";
 
         });
 
@@ -1389,6 +2375,16 @@
             mouseGlow.style.left = currentX + "px";
             mouseGlow.style.top = currentY + "px";
 
+            const trailX = mouseX - currentX;
+            const trailY = mouseY - currentY;
+            const trailLength = Math.sqrt(trailX ** 2 + trailY ** 2);
+            const trailAngle = Math.atan2(trailY, trailX) * (180 / Math.PI);
+
+            mouseTrail.style.left = currentX + "px";
+            mouseTrail.style.top = currentY + "px";
+            mouseTrail.style.width = trailLength + "px";
+            mouseTrail.style.transform = "rotate(" + trailAngle + "deg)";
+
             requestAnimationFrame(animateMouse);
 
         }
@@ -1398,10 +2394,66 @@
 
         document.addEventListener("mouseleave", () => {
             mouseGlow.style.opacity = "0";
+            mouseTrail.style.opacity = "0";
         });
 
         document.addEventListener("mouseenter", () => {
             mouseGlow.style.opacity = "1";
+            mouseTrail.style.opacity = "1";
+        });
+
+        const reymartPhoto = document.querySelector(".karawai-photo");
+        const reymartPhotoLink = reymartPhoto.querySelector("a");
+        const reymartPhotoImage = reymartPhoto.querySelector("img");
+        const reymartSlides = reymartPhoto.dataset.slideshowImages.split(",");
+        let reymartSlideIndex = 0;
+
+        function showNextReymartSlide() {
+            reymartPhoto.classList.add("is-changing");
+
+            window.setTimeout(() => {
+                reymartSlideIndex = (reymartSlideIndex + 1) % reymartSlides.length;
+                const nextImage = reymartSlides[reymartSlideIndex];
+
+                reymartPhotoImage.src = nextImage;
+                reymartPhotoLink.href = nextImage;
+                reymartPhoto.classList.remove("is-changing");
+            }, 350);
+        }
+
+        window.setInterval(showNextReymartSlide, 4000);
+
+        const proofLightbox = document.querySelector(".proof-lightbox");
+        const proofLightboxImage = proofLightbox.querySelector("img");
+        const proofLightboxClose = proofLightbox.querySelector(".proof-lightbox-close");
+
+        function closeProofLightbox() {
+            proofLightbox.classList.remove("is-open");
+            proofLightboxImage.src = "";
+            document.body.style.overflow = "";
+        }
+
+        document.querySelectorAll(".proof-gallery img").forEach((proofImage) => {
+            proofImage.addEventListener("click", () => {
+                proofLightboxImage.src = proofImage.src;
+                proofLightboxImage.alt = proofImage.alt;
+                proofLightbox.classList.add("is-open");
+                document.body.style.overflow = "hidden";
+            });
+        });
+
+        proofLightboxClose.addEventListener("click", closeProofLightbox);
+
+        proofLightbox.addEventListener("click", (event) => {
+            if (event.target === proofLightbox) {
+                closeProofLightbox();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && proofLightbox.classList.contains("is-open")) {
+                closeProofLightbox();
+            }
         });
 
     </script>
