@@ -2054,10 +2054,10 @@
 
         <div class="rewards-kicker">Meet the leader</div>
 
-        <h2>Meet <span>Reymart</span></h2>
+        <h2>About <span>Reymart</span></h2>
 
         <div class="karawai-profile">
-            <div class="karawai-photo" data-slideshow-images="reymart.png,reymart1.png,reymart3.png,reymart4.png">
+            <div class="karawai-photo">
                 <a href="reymart.png" target="_blank" rel="noopener noreferrer" aria-label="Open Reymart photo in a new tab">
                     <img src="reymart.png" alt="Reymart Quilicute, manager and marketing team leader">
                 </a>
@@ -2401,27 +2401,6 @@
             mouseGlow.style.opacity = "1";
             mouseTrail.style.opacity = "1";
         });
-
-        const reymartPhoto = document.querySelector(".karawai-photo");
-        const reymartPhotoLink = reymartPhoto.querySelector("a");
-        const reymartPhotoImage = reymartPhoto.querySelector("img");
-        const reymartSlides = reymartPhoto.dataset.slideshowImages.split(",");
-        let reymartSlideIndex = 0;
-
-        function showNextReymartSlide() {
-            reymartPhoto.classList.add("is-changing");
-
-            window.setTimeout(() => {
-                reymartSlideIndex = (reymartSlideIndex + 1) % reymartSlides.length;
-                const nextImage = reymartSlides[reymartSlideIndex];
-
-                reymartPhotoImage.src = nextImage;
-                reymartPhotoLink.href = nextImage;
-                reymartPhoto.classList.remove("is-changing");
-            }, 350);
-        }
-
-        window.setInterval(showNextReymartSlide, 4000);
 
         const proofLightbox = document.querySelector(".proof-lightbox");
         const proofLightboxImage = proofLightbox.querySelector("img");
