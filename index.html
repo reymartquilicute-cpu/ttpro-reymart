@@ -1563,6 +1563,297 @@
             background: linear-gradient(135deg, #1877f2, #0754b8);
         }
 
+        .music-section {
+            position: relative;
+            overflow: hidden;
+            padding: 100px 20px;
+            text-align: center;
+            background:
+                radial-gradient(circle at 80% 30%, rgba(255, 211, 79, 0.12), transparent 32%),
+                linear-gradient(135deg, #07161a 0%, #081016 55%, #11150e 100%);
+        }
+
+        .music-section h2 {
+            margin: 12px 0 14px;
+            color: #fff;
+            font-size: clamp(32px, 5vw, 58px);
+            font-weight: 900;
+        }
+
+        .music-section h2 span {
+            color: #ffd34f;
+            text-shadow: 0 0 18px rgba(255, 211, 79, 0.4);
+        }
+
+        .music-section > p {
+            max-width: 580px;
+            margin: 0 auto 34px;
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.7;
+        }
+
+        .music-player {
+            width: min(680px, 100%);
+            margin: 0 auto;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid rgba(255, 211, 79, 0.35);
+            border-radius: 12px;
+            background: rgba(5, 15, 20, 0.78);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28), inset 0 0 28px rgba(57, 255, 136, 0.05);
+        }
+
+        .music-player audio {
+            display: block;
+            width: 100%;
+            height: 46px;
+        }
+
+        .music-button {
+            border: 0;
+            padding: 15px 28px;
+            border-radius: 8px;
+            color: #071016;
+            background: linear-gradient(135deg, #39ff88, #ffd34f);
+            font: inherit;
+            font-size: 14px;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(57, 255, 136, 0.2);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .music-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(57, 255, 136, 0.3);
+        }
+
+        .music-button.is-hidden {
+            display: inline-block;
+        }
+
+        .song-choices {
+            display: none;
+            width: min(100%, 430px);
+            margin-top: 24px;
+            padding: 22px;
+            border: 1px solid rgba(57, 255, 136, 0.28);
+            border-radius: 12px;
+            background: rgba(5, 15, 20, 0.86);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+        }
+
+        .song-choices.is-open {
+            display: block;
+            animation: songChoicesIn 0.3s ease both;
+        }
+
+        .song-choice-title {
+            display: inline-block;
+            margin-bottom: 16px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: #071016 !important;
+            background: #ffe45c;
+            font-size: 14px;
+            font-weight: 900;
+            line-height: 1.35;
+            text-shadow: none;
+        }
+
+        .song-choice {
+            display: block;
+            width: 100%;
+            padding: 13px 16px;
+            border: 1px solid rgba(255, 211, 79, 0.5);
+            border-radius: 8px;
+            color: #fff;
+            background: rgba(255, 211, 79, 0.1);
+            font: inherit;
+            font-size: 14px;
+            font-weight: 800;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .song-item + .song-item {
+            margin-top: 16px;
+        }
+
+        .song-choice:hover,
+        .song-choice.is-selected {
+            border-color: #39ff88;
+            background: rgba(57, 255, 136, 0.16);
+        }
+
+        .song-audio {
+            display: none;
+            width: 100%;
+            margin-top: 18px;
+        }
+
+        .song-audio.is-visible {
+            display: block;
+        }
+
+        .song-error {
+            display: none;
+            margin-top: 12px;
+            color: #ffb4a8;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .song-error.is-visible {
+            display: block;
+        }
+
+        .music-tease {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 1000;
+            max-width: min(330px, calc(100% - 48px));
+            padding: 14px 18px;
+            border: 1px solid #ffe45c;
+            border-radius: 10px;
+            color: #071016;
+            background: #ffe45c;
+            box-shadow: 0 10px 30px rgba(255, 228, 92, 0.28);
+            font-size: 14px;
+            font-weight: 900;
+            line-height: 1.4;
+            text-align: center;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(16px);
+        }
+
+        .music-tease.is-visible {
+            animation: musicTeaseIn 15s ease forwards;
+        }
+
+        .music-tease.is-pause-message {
+            animation: musicPauseIn 0.3s ease forwards;
+        }
+
+        .pause-character {
+            position: fixed;
+            right: 24px;
+            bottom: 20px;
+            z-index: 1001;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        .pause-character.is-visible {
+            display: flex;
+            animation: pauseCharacterIn 0.35s ease both;
+        }
+
+        .pause-character-message {
+            margin-bottom: 8px;
+            padding: 10px 16px;
+            border: 2px solid #ffe45c;
+            border-radius: 9px;
+            color: #071016;
+            background: #ffe45c;
+            box-shadow: 0 8px 24px rgba(255, 228, 92, 0.3);
+            font-size: 14px;
+            font-weight: 900;
+            line-height: 1.35;
+            text-align: center;
+        }
+
+        .pause-character img {
+            display: block;
+            width: min(150px, 32vw);
+            max-height: 190px;
+            object-fit: contain;
+            mix-blend-mode: screen;
+            filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.45));
+        }
+
+        @media (max-width: 700px) {
+            .pause-character {
+                right: 12px;
+                bottom: 14px;
+            }
+
+            .pause-character-message {
+                max-width: min(280px, calc(100vw - 32px));
+                font-size: 12px;
+            }
+
+            .pause-character img {
+                width: min(120px, 30vw);
+                max-height: 150px;
+            }
+        }
+
+        @keyframes musicTeaseIn {
+            0% {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            8%, 88% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+        }
+
+        @keyframes musicPauseIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pauseCharacterIn {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes songChoicesIn {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .music-file-note {
+            margin-top: 14px;
+            color: #39ff88;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
         .karawai-cta:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 28px rgba(57, 255, 136, 0.24);
@@ -1928,6 +2219,7 @@
             <a href="#proof">Proof of Withdrawal</a>
             <a href="#referral">Referral</a>
             <a href="#team">Our Team</a>
+            <a href="#music">Music</a>
             <a href="#contact">Contact</a>
         </nav>
 
@@ -2098,6 +2390,53 @@
                         </svg>
                         Facebook <span aria-hidden="true">→</span>
                     </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="music-tease" role="status" aria-live="polite"></div>
+
+        <div class="pause-character" role="status" aria-live="polite">
+            <div class="pause-character-message">ano jo? tapos na? hindi naba masakit?</div>
+            <img src="c41.png" alt="Character teasing the listener">
+        </div>
+
+    </section>
+
+    <section id="music" class="info-section music-section">
+
+        <div class="rewards-kicker">TTPRO sound space</div>
+
+        <h2>Mag relapse ka muna bago ka kumita</h2>
+
+        <div class="music-player">
+            <button class="music-button" type="button" aria-expanded="false" aria-controls="song-choices">
+                Choose your painful songs
+            </button>
+
+            <div id="song-choices" class="song-choices" aria-hidden="true">
+                <p class="song-choice-title">pili ka ng song tapos usad kana bes</p>
+
+                <div class="song-item">
+                    <button class="song-choice" type="button" data-song="pahintulot-fixed.mp3" data-tease-set="pahintulot">
+                        Pahintulot - Shirebound
+                    </button>
+
+                    <audio class="song-audio" controls preload="metadata"></audio>
+                    <p class="song-error" role="alert">
+                        Hindi mabasa ang audio file. Palitan ang MP3 file para ma-play ang kanta.
+                    </p>
+                </div>
+
+                <div class="song-item">
+                    <button class="song-choice" type="button" data-song="kathangisip.mp3" data-tease-set="kathangisip">
+                        Kathang Isip
+                    </button>
+
+                    <audio class="song-audio" controls preload="metadata"></audio>
+                    <p class="song-error" role="alert">
+                        Hindi mabasa ang audio file. Palitan ang MP3 file para ma-play ang kanta.
+                    </p>
                 </div>
             </div>
         </div>
@@ -2432,6 +2771,145 @@
             if (event.target === proofLightbox) {
                 closeProofLightbox();
             }
+        });
+
+        const musicButton = document.querySelector(".music-button");
+        const songChoices = document.querySelector(".song-choices");
+        const songItems = document.querySelectorAll(".song-item");
+        const musicTease = document.querySelector(".music-tease");
+        const pauseCharacter = document.querySelector(".pause-character");
+        const teaseMessageSets = {
+            pahintulot: [
+                "Ayan, tiis muna... pinili mo yan, bes!",
+                "Masakit ba? Lakasan pa natin nang konti.",
+                "Huwag kang iiyak, intro pa lang yan.",
+                "Aminin mo, gusto mo pa rin pakinggan.",
+                "Sige lang, dagdagan pa natin ang sakit.",
+                "Walang skip, bes. Harapin mo ang feelings mo.",
+                "Mukhang may naalala ka, umamin ka na.",
+                "Kaya mo yan, konting iyak lang.",
+                "Sakto yan sa broken heart mong matapang.",
+                "Last na raw, pero naka-repeat ka na."
+            ],
+            kathangisip: [
+                "Kathang isip lang daw, pero bakit ka affected?",
+                "Uy, may tinatamaan ba sa lyrics?",
+                "Huwag kang mag-deny, alam naming nasasaktan ka.",
+                "Nagp-play ka pa rin, kahit masakit na.",
+                "Baka kailangan mo ng yakap, hindi repeat.",
+                "Tingin sa malayo, kunwari walang iniisip.",
+                "May message ba yan para sa kanya, bes?",
+                "Relax ka lang, kanta lang yan... siguro.",
+                "Naka-smile ka pero alam naming masakit.",
+                "Ayan ang kanta ng mga hindi maka-move on."
+            ]
+        };
+        let activeTeaseMessages = [];
+        let teaseOrder = [];
+        let teaseIndex = 0;
+        let teaseTimer;
+        let pauseTeaseTimer;
+
+        function resetMusicTease(messages) {
+            stopMusicTease();
+            activeTeaseMessages = messages;
+            teaseOrder = [...activeTeaseMessages].sort(() => Math.random() - 0.5);
+            teaseIndex = 0;
+        }
+
+        function showMusicTease() {
+            if (teaseIndex >= teaseOrder.length) {
+                stopMusicTease();
+                return;
+            }
+
+            clearTimeout(pauseTeaseTimer);
+            musicTease.textContent = teaseOrder[teaseIndex];
+            teaseIndex += 1;
+            musicTease.classList.remove("is-visible", "is-pause-message");
+            void musicTease.offsetWidth;
+            musicTease.classList.add("is-visible");
+        }
+
+        function scheduleMusicTease() {
+            clearTimeout(teaseTimer);
+            teaseTimer = setTimeout(() => {
+                showMusicTease();
+                if (teaseIndex < teaseOrder.length) {
+                    scheduleMusicTease();
+                }
+            }, 15000);
+        }
+
+        function stopMusicTease() {
+            clearTimeout(teaseTimer);
+            musicTease.classList.remove("is-visible");
+            musicTease.classList.remove("is-pause-message");
+        }
+
+        function showPauseTease() {
+            clearTimeout(pauseTeaseTimer);
+            stopMusicTease();
+            pauseCharacter.classList.add("is-visible");
+        }
+
+        function hidePauseTease() {
+            clearTimeout(pauseTeaseTimer);
+            pauseCharacter.classList.remove("is-visible");
+        }
+
+        musicButton.addEventListener("click", () => {
+            songChoices.classList.add("is-open");
+            musicButton.classList.remove("is-hidden");
+            musicButton.setAttribute("aria-expanded", "true");
+            songChoices.setAttribute("aria-hidden", "false");
+            songChoices.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        });
+
+        songItems.forEach((songItem) => {
+            const songChoice = songItem.querySelector(".song-choice");
+            const songAudio = songItem.querySelector(".song-audio");
+            const songError = songItem.querySelector(".song-error");
+
+            songChoice.addEventListener("click", () => {
+                document.querySelectorAll(".song-audio").forEach((audio) => {
+                    if (audio !== songAudio) {
+                        audio.pause();
+                    }
+                });
+
+                document.querySelectorAll(".song-choice").forEach((choice) => {
+                    choice.classList.remove("is-selected");
+                });
+
+                resetMusicTease(teaseMessageSets[songChoice.dataset.teaseSet]);
+                hidePauseTease();
+                songAudio.src = songChoice.dataset.song;
+                songAudio.classList.add("is-visible");
+                songChoice.classList.add("is-selected");
+                songError.classList.remove("is-visible");
+                songAudio.load();
+            });
+
+            songAudio.addEventListener("error", () => {
+                songError.classList.add("is-visible");
+            });
+
+            songAudio.addEventListener("play", () => {
+                if (!teaseOrder.length) {
+                    resetMusicTease(activeTeaseMessages);
+                }
+
+                if (teaseIndex < teaseOrder.length) {
+                    hidePauseTease();
+                    showMusicTease();
+                    scheduleMusicTease();
+                }
+            });
+
+            songAudio.addEventListener("pause", showPauseTease);
+            songAudio.addEventListener("ended", stopMusicTease);
+            songAudio.addEventListener("ended", hidePauseTease);
         });
 
         document.addEventListener("keydown", (event) => {
